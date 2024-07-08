@@ -8,7 +8,7 @@ const ReturnToHome = () => {
     <div className="my-5 mx-auto w-fit">
       <Link href="/" className={buttonVariants()}>
         <MoveLeft size={20} />
-        Return Home
+        العودة للصفحة الرئيسية
       </Link>
     </div>
   );

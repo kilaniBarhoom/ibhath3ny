@@ -1,9 +1,8 @@
 import { VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
+import { ny } from "@/lib/utils";
 
-import { cn } from "@/lib/utils";
-
-const typographyVariants = cva("text-foreground", {
+const typographyVariants = cva("text-primary-foreground", {
   variants: {
     as: {
       h1: "scroll-m-20 text-5xl font-extrabold tracking-tight lg:text-7xl capitalize",
@@ -12,7 +11,7 @@ const typographyVariants = cva("text-foreground", {
       h4: "scroll-m-20 md:text-2xl text-lg font-semibold tracking-tight",
       h5: "scroll-m-20 md:text-lg text-sm font-semibold tracking-tight",
       h6: "scroll-m-20 md:text-base text-xs font-semibold tracking-tight",
-      p: "leading-7",
+      p: "leading-7 md:text-lg text-sm",
       blockquote: "mt-6 pl-6 italic",
       ul: "my-6 ml-6 list-disc [&>li]:mt-2",
       inlineCode:
@@ -42,7 +41,7 @@ const Typography = <T extends Element>({
   const Component = element;
 
   const componentProps = {
-    className: cn(typographyVariants({ as, className })),
+    className: ny(typographyVariants({ as, className })),
     ...props,
   };
 

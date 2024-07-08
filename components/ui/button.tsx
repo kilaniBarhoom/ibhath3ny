@@ -1,20 +1,19 @@
+import { ny } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
 import * as React from "react";
-
-import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap rounded-lg text-sm font-medium transition focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 user-select-none",
   {
     variants: {
       variant: {
-        default: "bg-primary text-white hover:bg-primary/90",
+        default: "bg-primary text-black hover:bg-primary/90",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-border text-secondary-foreground hover:bg-accent hover:text-accent-foreground",
+          "border border-border text-secondary-foreground hover:bg-primary hover:text-black",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost:
@@ -36,7 +35,7 @@ const buttonVariants = cva(
         xs: "h-7 rounded-lg p-2",
         sm: "h-9 py-2 rounded-lg px-4",
         default: "h-10 px-4 py-2",
-        md: "h-11 py-3 px-6 text-lg",
+        md: "h-11 py-3 px-6 text-lg font-bold",
         lg: "h-11 text-2xl rounded-lg py-4 px-8",
         icon: "h-10 w-10 p-0",
       },
@@ -73,7 +72,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={ny(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       >

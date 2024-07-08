@@ -25,12 +25,22 @@ export default auth((req) => {
   }
 
   if (!isLoggedIn && !isPublicRoute) {
-    return Response.redirect(new URL(routes.authRoutes[0], nextUrl));
+    return Response.redirect(new URL("/", nextUrl));
   }
 
   return;
 });
 
+export const createMiddleware = {
+  locales: ["en", "ar"], // A list of all supported locales
+  defaultLocale: "en",
+};
+
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
+  matcher: [
+    "/((?!.*\\..*|_next).*)",
+    "/",
+    "/(api|trpc)(.*)",
+    "/(ar|en)/:path*",
+  ],
 };

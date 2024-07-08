@@ -14,19 +14,19 @@ const SignOut = () => {
             "use server";
             await signOut({ redirectTo: "/", redirect: true });
           }}
-          className="flex flex-col items-center gap-4 w-full max-w-md text-center p-4 bg-secondary rounded-lg shadow-lg"
+          className="flex flex-col items-center gap-4 w-full max-w-md text-center p-4 bg-background/10 border border-border rounded-md shadow-lg"
         >
           <Typography element="h3" as="h3">
-            Are you sure you want to sign out?
+            هل تريد تسجيل الخروج؟
           </Typography>
           <Button
             type="submit"
-            variant={"ghost"}
+            variant={"hover"}
             size={"lg"}
-            className="w-full border m-0 py-4"
+            className="w-full"
           >
             <LogOut className="mr-2 h-4 w-4" />
-            <span>Sign out</span>
+            تسجيل الخروج
           </Button>
         </form>
       </div>

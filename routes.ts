@@ -3,14 +3,14 @@
  * @type {string[]}
  */
 
-export const publicRoutes = ["/"];
+export const publicRoutes = ["/", "/search"];
 
 /**
  * Auth routes that are accessible to authenticated users
  * @type {string[]}
  */
 
-export const authRoutes = ["/login", "/sign-up", "/error"];
+export const authRoutes = ["/error"];
 
 /**
  * Routes with api prefix

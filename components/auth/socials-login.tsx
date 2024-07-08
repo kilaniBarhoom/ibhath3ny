@@ -25,12 +25,12 @@ const SocialsLogin = () => {
         handleSignIn("google");
       }}
       variant={"outline"}
-      className="w-fit gap-2 justify-start"
+      className="w-fit gap-2 justify-end"
       loading={loadingToSignInWithProvider}
       disabled={loadingToSignInWithProvider}
     >
+      تسجيل الدخول بواسطة جوجل
       <Image src={GoogleLogo} alt="Google Logo" width={20} height={20} />
-      Sign in with Google
     </Button>
   );
 };
