@@ -29,9 +29,9 @@ const SelectTrigger = React.forwardRef<
         : "h-10 px-3 py-2",
       className
     )}
-    onPointerDown={(e) => {
-      if (e.pointerType === "touch") e.preventDefault();
-    }}
+    // onPointerDown={(e) => {
+    //   if (e.pointerType === "touch") e.preventDefault();
+    // }}
     {...props}
   >
     <SelectPrimitive.Icon asChild>

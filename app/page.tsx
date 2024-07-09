@@ -9,11 +9,6 @@ const Home = () => {
   return (
     <div className={ny("w-full relative")}>
       <div className="flex flex-col w-full text-center justify-center items-center">
-        {/* <DotPattern
-            className={ny(
-              "md:[mask-image:radial-gradient(600px_circle_at_center,white,transparent)] [mask-image:radial-gradient(1000px_circle_at_center,white,transparent)]"
-              )}
-              /> */}
         <LampContainer>
           <div className="flex flex-col gap-5 justify-center items-center w-full relative z-30">
             <Typography element="h1" as={"h1"}>

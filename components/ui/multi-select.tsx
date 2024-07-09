@@ -60,7 +60,7 @@ export default function MultiSelect({
       className={ny("overflow-visible bg-transparent", className)}
     >
       <div className="group rounded-md border border-input px-3 py-2 text-sm ring-offset-background hover:bg-muted/30 transition-all ease-in-out duration-200 focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-1 text-right justify-end items-end">
           {selected.map((Course) => {
             return (
               <Badge key={Course.value} variant="secondary">
@@ -91,7 +91,7 @@ export default function MultiSelect({
             onBlur={() => setOpen(false)}
             onFocus={() => setOpen(true)}
             placeholder="اختار واحد او اكثر...."
-            className="ml-2 flex-1 w-[230px] bg-transparent outline-none placeholder:text-secondary-foreground"
+            className="ml-2 flex-1 w-[230px] bg-transparent outline-none placeholder:text-secondary-foreground text-right justify-end items-end"
           />
         </div>
       </div>
