@@ -1,21 +1,21 @@
 import Provider from "@/utils/providers/session-provider";
-import localFont from "@next/font/local";
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 
 import TopLoader from "@/components/component/top-loader";
 import Header from "@/components/header/Header";
-import "./globals.css";
 import { ny } from "@/lib/utils";
+import "./globals.css";
 
-// const fustat = localFont({
-//   src: [
-//     {
-//       path: "../public/fonts/Fustat.ttf",
-//       weight: "400",
-//     },
-//   ],
-//   variable: "--font-fustat",
-// });
+const fustat = localFont({
+  src: [
+    {
+      path: "../public/fonts/Fustat.ttf",
+      weight: "400",
+    },
+  ],
+  variable: "--font-fustat",
+});
 const merhey = localFont({
   src: [
     {

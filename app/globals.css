@@ -19,8 +19,8 @@
     --secondary: 0 0% 42%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 42%;
-    --muted-foreground: 213.1 93.9% 67.8%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 50%;
 
     --accent: 0 0% 42%;
     --accent-foreground: 0 0% 100%;
@@ -38,7 +38,7 @@
 
 @layer base {
   * {
-    @apply border-border scroll-smooth;
+    @apply border-border scroll-smooth ring-0;
   }
 
   body {

@@ -20,7 +20,7 @@ const buttonVariants = cva(
           "hover:bg-muted text-muted-foreground hover:text-secondary-foreground",
         ghostOnNav:
           "hover:bg-background text-muted-foreground hover:text-secondary-foreground",
-        link: "text-primary-foreground underline hover:underline",
+        link: "text-secondary-foreground hover:underline hover:text-primary-foreground",
         hover: "text-muted-foreground hover:text-secondary-foreground",
         expandIcon:
           "group relative text-primary-foreground bg-primary hover:bg-primary/90",

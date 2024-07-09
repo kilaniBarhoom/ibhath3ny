@@ -29,7 +29,7 @@ const SocialsLogin = () => {
       loading={loadingToSignInWithProvider}
       disabled={loadingToSignInWithProvider}
     >
-      تسجيل الدخول بواسطة جوجل
+      تسجيل الدخول
       <Image src={GoogleLogo} alt="Google Logo" width={20} height={20} />
     </Button>
   );

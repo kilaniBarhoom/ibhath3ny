@@ -1,5 +1,8 @@
+"use client";
+
 import { ny } from "@/lib/utils";
 import Marquee from "@/components/ui/marquee";
+import { motion } from "framer-motion";
 
 const reviews = [
   {
@@ -30,11 +33,27 @@ const reviews = [
 
 const firstRow = reviews.slice(0, reviews.length);
 
+const fadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    y: 100,
+  },
+  animate: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.03,
+      duration: 0.8,
+      ease: "easeInOut",
+    },
+  }),
+};
+
 function ReviewCard({ img, name }: { img: string; name: string }) {
   return (
     <figure
       className={ny(
-        "relative w-40 cursor-pointer overflow-hidden rounded-md border p-4",
+        "relative w-52 cursor-pointer overflow-hidden rounded-md border p-4",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
@@ -54,16 +73,22 @@ function ReviewCard({ img, name }: { img: string; name: string }) {
 export function MarqueeDemo() {
   return (
     <div className="relative bg-none flex h-full w-full max-w-screen-xl mx-auto flex-col items-center justify-center overflow-hidden pointer-events-none rounded-lg">
-      <Marquee repeat={100} className="[--duration:20s] bg-none">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.name} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse repeat={100} className="[--duration:20s] bg-none">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.name} {...review} />
-        ))}
-      </Marquee>
+      <motion.div
+        variants={fadeInAnimationVariants}
+        initial="initial"
+        whileInView="animate"
+      >
+        <Marquee repeat={100} className="[--duration:20s] bg-none">
+          {firstRow.map((review) => (
+            <ReviewCard key={review.name} {...review} />
+          ))}
+        </Marquee>
+        <Marquee reverse repeat={100} className="[--duration:20s] bg-none">
+          {firstRow.map((review) => (
+            <ReviewCard key={review.name} {...review} />
+          ))}
+        </Marquee>
+      </motion.div>
     </div>
   );
 }
