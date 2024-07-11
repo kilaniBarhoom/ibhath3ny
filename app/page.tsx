@@ -66,7 +66,7 @@ const Home = () => {
           <Image src={CN} alt="CN" className="w-16" />
         </div>
       </section>
-      <section className="my-40 mx-auto">
+      <section className="my-40 mx-auto hidden md:flex">
         <TwoWayParallax images={images} />
       </section>
       <section className="flex justify-between w-full">
