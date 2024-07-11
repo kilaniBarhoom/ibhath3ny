@@ -25,6 +25,15 @@ const merhey = localFont({
   ],
   variable: "--font-marhey",
 });
+const vazirmatn = localFont({
+  src: [
+    {
+      path: "../public/fonts/Vazirmatn.ttf",
+      weight: "400",
+    },
+  ],
+  variable: "--font-marhey",
+});
 
 export const metadata: Metadata = {
   title: "ibhath3ny",
@@ -44,7 +53,7 @@ export default async function LocaleLayout({
           <div className="min-h-screen w-full bg-background text-secondary-foreground">
             <TopLoader />
             <Header />
-            <main className="p-5">{children}</main>
+            <main className="px-3">{children}</main>
           </div>
         </Provider>
       </body>
