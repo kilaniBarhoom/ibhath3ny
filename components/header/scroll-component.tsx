@@ -13,10 +13,10 @@ export const ScrollComponent = ({
   return (
     <div
       className={ny(
-        "w-full sticky inset-x-0 top-0 transition-all bg-background/70 z-50",
+        "w-full sticky inset-x-0 top-0 transition-all bg-background z-50",
         {
-          "backdrop-blur-lg": scrolled,
-          "bg-background/70": selectedLayout,
+          "bg-yellow-500": scrolled,
+          "bg-background": selectedLayout,
         }
       )}
     >

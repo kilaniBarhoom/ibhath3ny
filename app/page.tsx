@@ -1,10 +1,10 @@
 "use client";
 
 import { buttonVariants } from "@/components/ui/button";
-import Spacetoon from "@/public/images/chanel logos/spacetoon.png";
-import Mbc3 from "@/public/images/chanel logos/mbc3.png";
-import CN from "@/public/images/chanel logos/cn.png";
-import Baraem from "@/public/images/chanel logos/baraem.png";
+import Spacetoon2 from "@/public/images/chanel logos/spacetoon2.svg";
+import Mbc32 from "@/public/images/chanel logos/mbc32.svg";
+import CN2 from "@/public/images/chanel logos/cn2.svg";
+import Baraem2 from "@/public/images/chanel logos/baraem2.svg";
 import Typography from "@/components/ui/typography";
 import { ny } from "@/lib/utils";
 import Link from "next/link";
@@ -12,6 +12,8 @@ import Image from "next/image";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect.tsx";
 import TwoWayParallax from "@/components/edil-ozi/two-way-parallax";
 import { Spotlight } from "@/components/ui/Spotlight";
+import { usePathname } from "next/navigation";
+import Header from "@/components/header/Header";
 const Home = () => {
   const images = [
     {
@@ -40,41 +42,50 @@ const Home = () => {
     },
   ];
   const words = "بحث مدعوم بالذكاء الاصطناعي";
+  const pathname = usePathname();
   return (
-    <div className="flex flex-col gap-20">
-      <section className="relative flex flex-col justify-between antialiased items-center gap-24 overflow-hidden pt-24">
-        <Spotlight
-          className="top-0 left-0 md:left-80 md:top-20"
-          fill="yellow"
-        />
-        <div className="text-center flex flex-col gap-10 justify-center items-center w-full z-30">
-          <Typography element="h1" as={"h1"}>
-            إبحث عن برنامجك بسهولة و سرعة!
-            <TextGenerateEffect words={words} />
+    <>
+      {!pathname.startsWith("/community") && <Header />}
+
+      <div className="flex flex-col gap-20 px-3">
+        <section className="relative max-w-screen-lg min-h-dvh mx-auto flex flex-col antialiased items-center md:justify-center gap-24 overflow-hidden md:p-0 pt-24">
+          <Spotlight
+            className="hidden md:flex md:left-80 md:top-20"
+            fill="yellow"
+          />
+          <div className="text-center flex flex-col gap-10 justify-center items-center w-full z-30">
+            <Typography element="h1" as={"h1"}>
+              إبحث عن برنامجك بسهولة و سرعة!
+              <TextGenerateEffect words={words} />
+            </Typography>
+
+            <Link
+              href={"/search"}
+              className={ny(
+                buttonVariants({ size: "md" }),
+                "w-fit rounded-full"
+              )}
+            >
+              إبحث الآن
+            </Link>
+          </div>
+          <div className="w-full flex gap-5 justify-center items-center flex-wrap">
+            <Image src={Spacetoon2} alt="spacetoon1" className="w-14" />
+            <Image src={Mbc32} alt="Mbc32" className="w-11" />
+            <Image src={Baraem2} alt="Baraem2" className="w-14" />
+            <Image src={CN2} alt="CN2" className="w-11" />
+          </div>
+        </section>
+        <section className="my-40 mx-auto">
+          <TwoWayParallax images={images} />
+        </section>
+        <section className="flex justify-between w-full max-w-screen-lg mx-auto">
+          <Typography element="h2" as="h2">
+            جميع البرامج المتوفرة
           </Typography>
-          <Link
-            href={"/search"}
-            className={ny(buttonVariants({ size: "md" }), "w-fit rounded-full")}
-          >
-            إبحث الآن
-          </Link>
-        </div>
-        <div className="w-full flex gap-4 justify-center items-center">
-          <Image src={Spacetoon} alt="spacetoon" className="w-16" />
-          <Image src={Mbc3} alt="Mbc3" className="w-16" />
-          <Image src={Baraem} alt="Baraem" className="w-16" />
-          <Image src={CN} alt="CN" className="w-16" />
-        </div>
-      </section>
-      <section className="my-40 mx-auto">
-        <TwoWayParallax images={images} />
-      </section>
-      <section className="flex justify-between w-full">
-        <Typography element="h2" as="h2">
-          جميع البرامج المتوفرة
-        </Typography>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 };
 
