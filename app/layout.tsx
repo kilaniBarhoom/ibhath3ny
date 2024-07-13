@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import TopLoader from "@/components/component/top-loader";
-import Header from "@/components/header/Header";
 import { ny } from "@/lib/utils";
 import "./globals.css";
+import Header from "@/components/header/Header";
 
 const fustat = localFont({
   src: [
@@ -53,7 +53,7 @@ export default async function LocaleLayout({
           <div className="min-h-screen w-full bg-background text-secondary-foreground">
             <TopLoader />
             <Header />
-            <main className="px-3">{children}</main>
+            <main>{children}</main>
           </div>
         </Provider>
       </body>
