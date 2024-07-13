@@ -13,51 +13,49 @@ const Header = async () => {
   const user = session?.user;
   return (
     <ScrollComponent>
-      <div className="flex justify-between items-center p-3 max-w-screen-lg mx-auto bg-transparent border-b md:border-0 border-border">
-        <div className="md:flex hidden gap-8 items-center">
-          {user ? (
-            <div className="flex items-center gap-3">
-              <Link className={buttonVariants()} href={"/sign-out"}>
-                <LogOut /> تسجيل الخروج
-              </Link>
-            </div>
-          ) : (
-            <SocialsLogin />
-          )}
-          <div className="flex items-center gap-4">
-            <Link
-              href={"/"}
-              className={ny(buttonVariants({ variant: "link" }), "p-0")}
-            >
-              الرئيسية
-            </Link>
-            <span>・</span>
-            <Link
-              href={"/community/home"}
-              className={ny(buttonVariants({ variant: "link" }), "p-0")}
-            >
-              مجتمعنا
-            </Link>
-            <span>・</span>
-            <Link
-              href={"/community"}
-              className={ny(buttonVariants({ variant: "link" }), "p-0")}
-            >
-              الأسئلة المتكررة
-            </Link>
-            <span>・</span>
-            <Link
-              href={"/community"}
-              className={ny(buttonVariants({ variant: "link" }), "p-0")}
-            >
-              الأسعار
+      <div className="md:flex hidden gap-8 items-center">
+        {user ? (
+          <div className="flex items-center gap-3">
+            <Link className={buttonVariants()} href={"/sign-out"}>
+              <LogOut /> تسجيل الخروج
             </Link>
           </div>
+        ) : (
+          <SocialsLogin />
+        )}
+        <div className="flex items-center gap-4">
+          <Link
+            href={"/"}
+            className={ny(buttonVariants({ variant: "link" }), "p-0")}
+          >
+            الرئيسية
+          </Link>
+          <span>・</span>
+          <Link
+            href={"/community/home"}
+            className={ny(buttonVariants({ variant: "link" }), "p-0")}
+          >
+            مجتمعنا
+          </Link>
+          <span>・</span>
+          <Link
+            href={"/community"}
+            className={ny(buttonVariants({ variant: "link" }), "p-0")}
+          >
+            الأسئلة المتكررة
+          </Link>
+          <span>・</span>
+          <Link
+            href={"/community"}
+            className={ny(buttonVariants({ variant: "link" }), "p-0")}
+          >
+            الأسعار
+          </Link>
         </div>
-        <HeaderMobile session={session} />
-        <div className="text-2xl mr-auto font-bold">
-          <Link href={"/"}>ibhath3ny</Link>
-        </div>
+      </div>
+      <HeaderMobile session={session} />
+      <div className="text-2xl mr-auto font-bold">
+        <Link href={"/"}>ibhath3ny</Link>
       </div>
     </ScrollComponent>
   );
