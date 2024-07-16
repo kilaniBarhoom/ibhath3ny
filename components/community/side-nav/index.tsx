@@ -4,22 +4,16 @@ import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
 const SideNav = () => {
   return (
     <div className="bg-muted flex flex-col w-full h-full p-4">
-      <DropdownMenu>
+      {/* <DropdownMenu>
         <DropdownMenuTrigger>Open</DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>حسابي</DropdownMenuLabel>
@@ -28,7 +22,7 @@ const SideNav = () => {
           <DropdownMenuItem>Team</DropdownMenuItem>
           <DropdownMenuItem>Subscription</DropdownMenuItem>
         </DropdownMenuContent>
-      </DropdownMenu>
+      </DropdownMenu> */}
       <nav className="flex flex-col gap-2">
         {Array.from({ length: 10 }).map((_, i) => (
           <Link

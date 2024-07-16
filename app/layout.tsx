@@ -5,7 +5,8 @@ import localFont from "next/font/local";
 import TopLoader from "@/components/component/top-loader";
 import { ny } from "@/lib/utils";
 import "./globals.css";
-import Header from "@/components/header/Header";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const fustat = localFont({
   src: [
@@ -54,6 +55,7 @@ export default async function LocaleLayout({
             <TopLoader />
             <Header />
             <main>{children}</main>
+            <Footer />
           </div>
         </Provider>
       </body>

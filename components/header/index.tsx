@@ -1,11 +1,12 @@
 import { auth } from "@/auth";
-import SocialsLogin from "../auth/socials-login";
 import Link from "next/link";
-import { buttonVariants } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { LogOut } from "lucide-react";
 import { ny } from "@/lib/utils";
 import HeaderMobile from "./mobile-header";
 import { ScrollComponent } from "./scroll-component";
+import { headerItems } from "./header-items";
+import { Fragment } from "react";
 // import LanguageSelectForm from "../component/language-select";
 
 const Header = async () => {
@@ -21,36 +22,27 @@ const Header = async () => {
             </Link>
           </div>
         ) : (
-          <SocialsLogin />
+          <Link href={"/login"} className={ny(buttonVariants(), "w-full")}>
+            تسجيل الدخول
+          </Link>
         )}
         <div className="flex items-center gap-4">
-          <Link
-            href={"/"}
-            className={ny(buttonVariants({ variant: "link" }), "p-0")}
-          >
-            الرئيسية
-          </Link>
-          <span>・</span>
-          <Link
-            href={"/community/home"}
-            className={ny(buttonVariants({ variant: "link" }), "p-0")}
-          >
-            مجتمعنا
-          </Link>
-          <span>・</span>
-          <Link
-            href={"/community"}
-            className={ny(buttonVariants({ variant: "link" }), "p-0")}
-          >
-            الأسئلة المتكررة
-          </Link>
-          <span>・</span>
-          <Link
-            href={"/community"}
-            className={ny(buttonVariants({ variant: "link" }), "p-0")}
-          >
-            الأسعار
-          </Link>
+          {headerItems.map((item, i) => (
+            <Fragment key={item.title}>
+              <Link
+                href={item.href}
+                className={ny(
+                  buttonVariants({ variant: "link" }),
+                  "p-0 font-normal"
+                )}
+              >
+                {item.title}
+              </Link>
+              <span className={`${i === headerItems.length - 1 && "hidden"}`}>
+                ・
+              </span>
+            </Fragment>
+          ))}
         </div>
       </div>
       <HeaderMobile session={session} />

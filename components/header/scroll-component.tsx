@@ -18,11 +18,11 @@ export const ScrollComponent = ({
     <>
       {!pathsToExclude.includes(pathname) &&
         (pathname === "/" ? (
-          <div
+          <header
             className={ny(
               "w-full sticky inset-x-0 lg:top-10 top-0 transition-all bg-transparent z-50 ease-in-out duration-200",
               {
-                "bg-yellow-500 top-0 lg:top-0": scrolled,
+                "bg-background shadow-2xl top-0 lg:top-0 border-b": scrolled,
                 "bg-transparent": selectedLayout,
               }
             )}
@@ -38,29 +38,21 @@ export const ScrollComponent = ({
             >
               {children}
             </div>
-          </div>
+          </header>
         ) : (
-          <div
+          <header
             className={ny(
-              "w-full sticky inset-x-0 top-0 transition-all bg-background z-50 ease-in-out duration-300",
-              {
-                "bg-yellow-500": scrolled,
-                "bg-background": selectedLayout,
-              }
+              "w-full sticky inset-x-0 top-0 bg-background shadow-2xl z-50 border-b"
             )}
           >
             <div
               className={ny(
-                "flex justify-between items-center p-3 max-w-screen-lg mx-auto transition-all ease-in-out duration-300",
-                {
-                  " max-w-screen-lg mx-auto": selectedLayout,
-                  "w-full max-w-full": scrolled,
-                }
+                "flex justify-between items-center p-3 mx-autow-full max-w-full"
               )}
             >
               {children}
             </div>
-          </div>
+          </header>
         ))}
     </>
   );

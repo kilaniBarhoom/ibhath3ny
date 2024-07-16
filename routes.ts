@@ -10,7 +10,7 @@ export const publicRoutes = ["/", "/search", "/community/home"];
  * @type {string[]}
  */
 
-export const authRoutes = ["/error"];
+export const authRoutes = ["/error", "/login"];
 
 /**
  * Routes with api prefix

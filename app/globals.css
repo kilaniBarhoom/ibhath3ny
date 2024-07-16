@@ -20,7 +20,10 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 50%;
+    --muted-foreground: 0 0% 70%;
+
+    --smoked: 0 0% 17%;
+    --smoked-foreground: 0 0% 60%;
 
     --accent: 0 0% 42%;
     --accent-foreground: 0 0% 100%;
