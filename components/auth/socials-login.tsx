@@ -1,15 +1,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { signIn } from "next-auth/react";
-import { DEFAULT_REDIRECT } from "@/routes";
 import Google from "@/public/images/GoogleLogo.png";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 
 const SocialsLogin = () => {
   const handleSignIn = async (provider: string) => {
     await signIn(provider, {
-      callbackUrl: DEFAULT_REDIRECT,
+      callbackUrl: "/search",
     });
   };
   return (

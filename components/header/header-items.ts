@@ -1,18 +1,14 @@
 export const headerItems = [
   {
-    title: "الرئيسية",
-    href: "/",
-  },
-  {
     title: "مجتمعنا",
-    href: "/community/home",
+    href: "/community/all-questions",
   },
   {
     title: "الأسئلة المتكررة",
-    href: "#faq",
+    href: "/#faq",
   },
   {
     title: "الأسعار",
-    href: "/community",
+    href: "/community/all-questions",
   },
 ];

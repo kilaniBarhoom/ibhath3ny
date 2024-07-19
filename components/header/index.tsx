@@ -1,12 +1,11 @@
 import { auth } from "@/auth";
-import Link from "next/link";
-import { Button, buttonVariants } from "../ui/button";
-import { LogOut } from "lucide-react";
 import { ny } from "@/lib/utils";
+import Link from "next/link";
+import { buttonVariants } from "../ui/button";
 import HeaderMobile from "./mobile-header";
+import ProfilerHeaderRender from "./profile-header-render";
+import RenderParts from "./render-parts";
 import { ScrollComponent } from "./scroll-component";
-import { headerItems } from "./header-items";
-import { Fragment } from "react";
 // import LanguageSelectForm from "../component/language-select";
 
 const Header = async () => {
@@ -14,36 +13,18 @@ const Header = async () => {
   const user = session?.user;
   return (
     <ScrollComponent>
-      <div className="md:flex hidden gap-8 items-center">
+      <div className="md:flex hidden gap-5 items-center">
         {user ? (
-          <div className="flex items-center gap-3">
-            <Link className={buttonVariants()} href={"/sign-out"}>
-              <LogOut /> تسجيل الخروج
-            </Link>
-          </div>
+          <ProfilerHeaderRender />
         ) : (
-          <Link href={"/login"} className={ny(buttonVariants(), "w-full")}>
+          <Link
+            href={"/login"}
+            className={ny(buttonVariants({ size: "sm" }), "w-full")}
+          >
             تسجيل الدخول
           </Link>
         )}
-        <div className="flex items-center gap-4">
-          {headerItems.map((item, i) => (
-            <Fragment key={item.title}>
-              <Link
-                href={item.href}
-                className={ny(
-                  buttonVariants({ variant: "link" }),
-                  "p-0 font-normal"
-                )}
-              >
-                {item.title}
-              </Link>
-              <span className={`${i === headerItems.length - 1 && "hidden"}`}>
-                ・
-              </span>
-            </Fragment>
-          ))}
-        </div>
+        <RenderParts user={user} />
       </div>
       <HeaderMobile session={session} />
       <div className="text-2xl mr-auto font-bold">

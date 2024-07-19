@@ -22,6 +22,11 @@ const typographyVariants = cva("text-primary-foreground", {
       extraSmallText: "text-xs font-light",
       mutedText: "text-muted-foreground",
     },
+    color: {
+      primary: "text-primary-foreground",
+      muted: "text-muted-foreground",
+      secondary: "text-secondary-foreground",
+    },
   },
 });
 
@@ -36,12 +41,13 @@ const Typography = <T extends Element>({
   className,
   element,
   as,
+  color,
   ...props
 }: TypographyProps<T>) => {
   const Component = element;
 
   const componentProps = {
-    className: ny(typographyVariants({ as, className })),
+    className: ny(typographyVariants({ as, color, className })),
     ...props,
   };
 

@@ -32,7 +32,7 @@ export const ScrollComponent = ({
                 "flex justify-between items-center p-3 max-w-screen-lg mx-auto transition-all ease-in-out duration-200",
                 {
                   " max-w-screen-lg mx-auto": selectedLayout,
-                  "w-full max-w-full": scrolled,
+                  "w-full max-w-screen-2xl": scrolled,
                 }
               )}
             >
@@ -42,12 +42,12 @@ export const ScrollComponent = ({
         ) : (
           <header
             className={ny(
-              "w-full sticky inset-x-0 top-0 bg-background shadow-2xl z-50 border-b"
+              "w-full sticky inset-x-0 top-0 bg-background shadow-2xl z-50 border-b border-border"
             )}
           >
             <div
               className={ny(
-                "flex justify-between items-center p-3 mx-autow-full max-w-full"
+                "flex justify-between items-center p-3 mx-auto max-w-screen-2xl w-full"
               )}
             >
               {children}

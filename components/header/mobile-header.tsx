@@ -10,6 +10,7 @@ import { buttonVariants } from "../ui/button";
 import { ny } from "@/lib/utils";
 import { LogOut } from "lucide-react";
 import SocialsLogin from "../auth/socials-login";
+import { headerItems } from "./header-items";
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -54,61 +55,20 @@ const HeaderMobile = ({ session }: { session: any }) => {
         variants={variants}
         className="absolute grid w-full gap-3 px-10 py-16 max-h-screen overflow-y-auto"
       >
-        <MenuItem toggle={toggleOpen}>
-          <Link
-            href="/"
-            className={ny(
-              buttonVariants({ variant: "secondary" }),
-              "w-full text-center",
-              pathname === "/" &&
-                "pointer-events-none text-primary font-bold text-lg"
-            )}
-          >
-            الرئيسية
-          </Link>
-        </MenuItem>
-        <MenuItem toggle={toggleOpen}>
-          <Link
-            href="/community"
-            onClick={() => toggleOpen()}
-            className={ny(
-              buttonVariants({ variant: "secondary" }),
-              "w-full text-center",
-              pathname === "/community" &&
-                "pointer-events-none text-primary font-bold text-lg"
-            )}
-          >
-            مجتمعنا
-          </Link>
-        </MenuItem>
-        <MenuItem toggle={toggleOpen}>
-          <Link
-            href="/community"
-            onClick={() => toggleOpen()}
-            className={ny(
-              buttonVariants({ variant: "secondary" }),
-              "w-full text-center",
-              pathname === "/community" &&
-                "pointer-events-none text-primary font-bold text-lg"
-            )}
-          >
-            الأسئلة المتكررة
-          </Link>
-        </MenuItem>
-        <MenuItem toggle={toggleOpen}>
-          <Link
-            href="/"
-            onClick={() => toggleOpen()}
-            className={ny(
-              buttonVariants({ variant: "secondary" }),
-              "w-full text-center",
-              pathname === "/community" &&
-                "pointer-events-none text-primary font-bold text-lg"
-            )}
-          >
-            الأسعار
-          </Link>
-        </MenuItem>
+        {headerItems.map((item, index) => (
+          <MenuItem key={index} toggle={toggleOpen}>
+            <Link
+              href={item.href}
+              className={ny(
+                buttonVariants({ variant: "outline" }),
+                "w-full text-center",
+                pathname === item.href && "pointer-events-none"
+              )}
+            >
+              {item.title}
+            </Link>
+          </MenuItem>
+        ))}
         {session?.user ? (
           <MenuItem className="flex-1" toggle={toggleOpen}>
             <Link
@@ -125,7 +85,9 @@ const HeaderMobile = ({ session }: { session: any }) => {
           </MenuItem>
         ) : (
           <MenuItem className="flex-1" toggle={toggleOpen}>
-            <SocialsLogin />
+            <Link href={"/login"} className={ny(buttonVariants(), "w-full")}>
+              تسجيل الدخول
+            </Link>
           </MenuItem>
         )}
       </motion.ul>

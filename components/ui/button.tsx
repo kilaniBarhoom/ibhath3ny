@@ -5,11 +5,12 @@ import { Loader2 } from "lucide-react";
 import * as React from "react";
 
 const buttonVariants = cva(
-  "inline-flex items-center  justify-center gap-2 cursor-pointer whitespace-nowrap rounded-lg text-sm font-semibold transition focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 user-select-none",
+  "inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap rounded-lg text-sm font-semibold transition-all ease-in-out duration-200 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 user-select-none",
   {
     variants: {
       variant: {
-        default: "bg-primary text-black hover:bg-primary/90",
+        default:
+          "bg-gradient-to-r from-amber-400 to-primary text-black scale-100 hover:scale-105",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
@@ -36,7 +37,7 @@ const buttonVariants = cva(
         sm: "h-9 py-2 rounded-lg px-4",
         default: "h-10 px-4 py-2",
         md: "h-11 py-3 px-6 text-lg",
-        lg: "h-11 text-2xl rounded-lg py-4 px-8",
+        lg: "h-11 text-lg rounded-lg py-4 px-8",
         icon: "h-10 w-10 p-0",
       },
     },

@@ -51,10 +51,12 @@ export default async function LocaleLayout({
     <html lang="ar" dir="rtl">
       <body className={ny("font-marhey", merhey.variable)}>
         <Provider>
-          <div className="min-h-screen w-full bg-background text-secondary-foreground">
-            <TopLoader />
-            <Header />
-            <main>{children}</main>
+          <div className="min-h-screen w-full bg-background text-secondary-foreground flex flex-col justify-between">
+            <div className="w-full h-full flex flex-col">
+              <TopLoader />
+              <Header />
+              <main>{children}</main>
+            </div>
             <Footer />
           </div>
         </Provider>

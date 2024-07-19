@@ -8,7 +8,7 @@ export default function TopLoader() {
         color="#ffec00"
         initialPosition={0.08}
         crawlSpeed={200}
-        height={4}
+        height={2}
         crawl={true}
         easing="ease"
         speed={200}

@@ -3,7 +3,7 @@
  * @type {string[]}
  */
 
-export const publicRoutes = ["/", "/search", "/community/home"];
+export const publicRoutes = ["/"];
 
 /**
  * Auth routes that are accessible to authenticated users

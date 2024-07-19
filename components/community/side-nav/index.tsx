@@ -1,36 +1,32 @@
+"use client";
+
 import { buttonVariants } from "@/components/ui/button";
 import { ny } from "@/lib/utils";
 import Link from "next/link";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { sidenavItems } from "./side-nav-items";
+import { usePathname } from "next/navigation";
 
 const SideNav = () => {
+  const pathname = usePathname();
   return (
-    <div className="bg-muted flex flex-col w-full h-full p-4">
-      {/* <DropdownMenu>
-        <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>حسابي</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem></DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu> */}
-      <nav className="flex flex-col gap-2">
-        {Array.from({ length: 10 }).map((_, i) => (
+    <div className="flex flex-col w-full h-full p-4">
+      <nav className="flex flex-col gap-5">
+        {sidenavItems.map((item) => (
           <Link
-            key={i}
-            href="#"
-            className={ny(buttonVariants({ variant: "ghostOnNav" }), "w-full")}
+            key={item.title}
+            href={`/community/${item.href}`}
+            className={ny(
+              buttonVariants({
+                variant: pathname.includes(item.href)
+                  ? "default"
+                  : "ghostOnNav",
+                size: "md",
+              }),
+              "w-full justify-start"
+            )}
           >
-            عنصر {i}
+            {item.title}
+            <item.icon />
           </Link>
         ))}
       </nav>

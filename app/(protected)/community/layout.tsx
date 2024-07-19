@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 
 const CommunityLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex">
-      <aside className="fixed inset-y-0 top-16 left-right z-10 border-l border-border hidden lg:flex min-w-56 w-56 transition-all duration-300 ease-in-out overflow-y-auto">
+    <div className="flex max-w-screen-xl mx-auto w-full gap-10 p-5">
+      <aside className="sticky h-full bg-muted top-20 hidden rounded-md lg:flex min-w-56 w-56 transition-all duration-300 ease-in-out overflow-y-auto">
         <SideNav />
       </aside>
-      <main className="max-w-screen-lg mx-auto lg:pr-56">{children}</main>
+      <main className="mx-auto w-full">{children}</main>
     </div>
   );
 };

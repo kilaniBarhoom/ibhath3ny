@@ -3,7 +3,7 @@ import Typography from "@/components/ui/typography";
 
 const SearchPage = () => {
   return (
-    <div className="max-w-screen-lg mx-auto flex flex-col gap-10 justify-center items-center p-3">
+    <div className="max-w-screen-lg mx-auto flex flex-col gap-10 justify-center items-center p-3 min-h-dvh">
       <DescriptionPrompt />
       <div>
         <Typography element="h2" as="h2">

@@ -22,14 +22,20 @@ const LoginPage = () => {
             <br />
             <Link
               href={"/terms-of-usage"}
-              className={ny(buttonVariants({ variant: "link" }), "px-1")}
+              className={ny(
+                buttonVariants({ variant: "link" }),
+                "px-1 font-normal"
+              )}
             >
               شروط الاستخدام
             </Link>{" "}
             <span>・</span>
             <Link
               href={"/privacy-policy"}
-              className={ny(buttonVariants({ variant: "link" }), "px-1")}
+              className={ny(
+                buttonVariants({ variant: "link" }),
+                "px-1 font-normal"
+              )}
             >
               وسياسة الخصوصية
             </Link>

@@ -21,6 +21,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronUp } from "lucide-react";
 import useScroll from "@/hooks/use-scroll";
+import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+
 const Home = () => {
   const images = [
     {
@@ -90,8 +92,11 @@ const Home = () => {
               objectFit="contain"
             />
           </button>
+
           <Typography element="h1" as={"h1"}>
-            إبحث عن برنامجك بسهولة و سرعة!
+            <p className="bg-gradient-to-r from-amber-200 to-primary bg-clip-text text-transparent">
+              إبحث عن برنامجك بسهولة و سرعة!
+            </p>
             <TextGenerateEffect words={words} />
           </Typography>
 
@@ -118,7 +123,7 @@ const Home = () => {
           </Typography>
         </section> */}
       <section
-        className="flex w-full mx-auto max-w-screen-lg justify-center items-center flex-col gap-10 min-h-dvh"
+        className="flex w-full mx-auto max-w-screen-lg justify-center items-center flex-col gap-10 md:min-h-dvh min-h-svh"
         id="faq"
       >
         <Typography element="h3" as="h3">
