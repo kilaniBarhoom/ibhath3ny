@@ -6,6 +6,7 @@ import HeaderMobile from "./mobile-header";
 import ProfilerHeaderRender from "./profile-header-render";
 import RenderParts from "./render-parts";
 import { ScrollComponent } from "./scroll-component";
+import Typography from "../ui/typography";
 // import LanguageSelectForm from "../component/language-select";
 
 const Header = async () => {
@@ -28,7 +29,10 @@ const Header = async () => {
       </div>
       <HeaderMobile session={session} />
       <div className="text-2xl mr-auto font-bold">
-        <Link href={"/"}>ibhath3ny</Link>
+        <Link href={"/"}>
+          ibhath
+          <Typography element="span">3ny</Typography>
+        </Link>
       </div>
     </ScrollComponent>
   );

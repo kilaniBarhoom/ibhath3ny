@@ -13,7 +13,7 @@ const CommunityLayout = ({ children }: { children: React.ReactNode }) => {
       <aside className="fixed right-0 top-16 inset-y-0 h-full z-10 bg-muted hidden overflow-y-auto lg:flex w-72 flex-shrink-0">
         <SideNav />
       </aside>
-      <main className="min-h-screen lg:px-72 px-4 w-full max-w-screen-2xl mx-auto">{children}</main>
+      <main className="min-h-screen lg:px-72 w-full max-w-screen-2xl mx-auto">{children}</main>
       <aside className="fixed left-0 top-16 inset-y-0 h-full z-10 bg-muted hidden overflow-y-auto lg:flex w-72 flex-shrink-0">
         <SideNav />
       </aside>
