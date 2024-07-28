@@ -1,12 +1,11 @@
-import Provider from "@/utils/providers/session-provider";
+import Provider from "@/app/_utils/providers/session-provider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-
-import TopLoader from "@/components/component/top-loader";
-import { ny } from "@/lib/utils";
+import TopLoader from "@/app/_components/component/top-loader";
+import Header from "@/app/_components/header";
+import { ny } from "@/app/_lib/utils";
 import "./globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import { Toaster } from "./_components/ui/sonner";
 
 const fustat = localFont({
   src: [
@@ -51,13 +50,13 @@ export default async function LocaleLayout({
     <html lang="ar" dir="rtl">
       <body className={ny("font-marhey", merhey.variable)}>
         <Provider>
-          <div className="min-h-screen w-full bg-background text-secondary-foreground flex flex-col justify-between">
+          <Toaster />
+          <div className="min-h-screen w-full bg-background text-secondary-foreground flex flex-col">
             <div className="w-full h-full flex flex-col">
               <TopLoader />
               <Header />
               <main>{children}</main>
             </div>
-            <Footer />
           </div>
         </Provider>
       </body>

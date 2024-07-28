@@ -20,6 +20,10 @@ model User {
   role         UserRole @default(USER)
   emailVerified DateTime?
   accounts      Account[]
+  questions     Question[]
+  answers      Answer[]
+  views        View[]
+  upvotes      Upvote[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -45,3 +49,59 @@ model Account {
  
   @@id([provider, providerAccountId])
 }
+
+model Question {
+  id         String  @id @default(cuid())
+  title       String
+  content      String
+  anonymous    Boolean @default(false)
+  answers     Answer[]
+  views      View[]
+  tags       Tag[]
+  user         User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Answer {
+  id         String  @id @default(cuid())
+  content      String
+  questionId   String
+  question     Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  user        User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+  upvotes    Upvote[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model View {
+  id         String  @id @default(cuid())
+  questionId   String
+  question     Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  userId     String
+  user        User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@unique([questionId, userId])
+}
+model Upvote {
+  id         String  @id @default(cuid())
+  answerId    String
+  answer      Answer @relation(fields: [answerId], references: [id], onDelete: Cascade)
+  userId     String
+  user        User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Tag {
+  id         String  @id @default(cuid())
+  name       String
+  questions  Question[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+

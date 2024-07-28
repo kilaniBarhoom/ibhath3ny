@@ -1,9 +1,9 @@
+import { db } from "@/app/_utils/db/config/db.config";
+import { getUserById } from "@/app/_utils/db/data/user";
 import authConfig from "@/auth.config";
-import { getUserById } from "@/utils/db/data/user";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { UserRole } from "@prisma/client";
 import NextAuth, { type DefaultSession } from "next-auth";
-import { db } from "@/utils/db/config/db.config";
 
 declare module "next-auth" {
   interface Session {

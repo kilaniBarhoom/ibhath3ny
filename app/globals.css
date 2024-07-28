@@ -5,16 +5,16 @@
 @layer base {
   :root {
     --background: 0 0% 12%;
-    --foreground: 56 100% 50%;
+    --foreground: 47 79% 50%;
 
     --card: 226.2 57% 21%;
-    --card-foreground: 56 100% 50%;
+    --card-foreground: 47 79% 50%;
 
     --popover: 226.2 57% 21%;
-    --popover-foreground: 56 100% 50%;
+    --popover-foreground: 47 79% 50%;
 
     --primary: 56 100% 50%;
-    --primary-foreground: 56 100% 50%;
+    --primary-foreground: 47 79% 50%;
 
     --secondary: 0 0% 42%;
     --secondary-foreground: 0 0% 100%;
@@ -28,8 +28,8 @@
     --accent: 0 0% 42%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 100% 50%;
 
     --border: 0 0% 27%;
     --input: 0 0% 42%;
@@ -47,4 +47,23 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #333333;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #555555;
+  border-radius: 6px;
+  border: 3px solid #333333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #777777;
 }
