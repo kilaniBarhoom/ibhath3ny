@@ -25,7 +25,7 @@ const QuestionViewPage = async ({
         <Typography element="h3" as="h3" color="secondary">
           {question?.title}
         </Typography>
-        <div className="flex items-center gap-5 font-sans">
+        <div className="flex items-center gap-5">
           <Typography
             element="p"
             as="smallText"
@@ -61,7 +61,7 @@ const QuestionViewPage = async ({
         <div dangerouslySetInnerHTML={{ __html: question?.content ?? "" }} />
       </Typography>
       <div id="answers" className="flex flex-col gap-6">
-        <div className="flex justify-between items-center font-sans">
+        <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
           <Typography element="p" as="p">
             {question?.answers.length}

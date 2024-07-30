@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useState } from 'react'
 import Date from "@/app/_components/component/date";
 import Typography from "@/app/_components/ui/typography";
 import { UserAvatar } from "@/app/_components/ui/user-avatar";
-import { ArrowBigUp } from 'lucide-react';
+import { ArrowBigUp } from "lucide-react";
+import { useState } from "react";
 
-const AnswerComponent = ({ answer }: {
-    answer: AnswerType;
-}) => {
-  const [fill, setFill] = useState(false)
+const AnswerComponent = ({ answer }: { answer: AnswerType }) => {
+  const [fill, setFill] = useState(false);
   return (
     <li className=" [&:first-child]:pt-0 pt-5 flex items-center justify-between">
       <div className="flex flex-col gap-2">
@@ -41,17 +39,12 @@ const AnswerComponent = ({ answer }: {
           className="text-primary-foreground cursor-pointer"
           onClick={() => setFill((f) => !f)}
         />
-        <Typography
-          element="h4"
-          as="h4"
-          color="secondary"
-          className="font-sans"
-        >
+        <Typography element="h4" as="h4" color="secondary" className="">
           {answer.upvotes.length}
         </Typography>
       </div>
     </li>
   );
-}
+};
 
-export default AnswerComponent
+export default AnswerComponent;
