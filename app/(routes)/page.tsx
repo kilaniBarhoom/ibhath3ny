@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/app/_components/ui/accordion";
+import localFont from "next/font/local";
 import { buttonVariants } from "@/app/_components/ui/button";
 import DotPattern from "@/app/_components/ui/dot-pattern";
 import { TextGenerateEffect } from "@/app/_components/ui/text-generate-effect.tsx";
@@ -52,6 +53,8 @@ const Home = () => {
   ];
   const words = "بحث مدعوم بالذكاء الاصطناعي";
 
+
+
   const scrolled1 = useScroll(3);
   const scrolled2 = useScroll(4);
   const scrolled3 = useScroll(5);
@@ -82,7 +85,8 @@ const Home = () => {
             "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]"
           )}
         />
-        <div className="text-center flex flex-col gap-10 justify-center items-center w-full z-30">
+        <div
+          className="text-center flex flex-col gap-10 justify-center items-center w-full z-30">
           <button className="scale-90 flex items-center gap-2 w-fit px-3 py-1 bg-gradient-to-br pointer-events-none from-yellow-300 to-background border border-yellow-100 rounded-full">
             <span className="text-xs">مدعوم بالذكاء الاصطناعي</span>
             <Image
@@ -92,14 +96,12 @@ const Home = () => {
               objectFit="contain"
             />
           </button>
-
           <Typography element="h1" as={"h1"}>
             <p className="bg-gradient-to-r from-amber-200 to-primary bg-clip-text text-transparent">
               إبحث عن برنامجك بسهولة و سرعة!
             </p>
             <TextGenerateEffect words={words} />
           </Typography>
-
           <Link
             href={"/search"}
             className={ny(buttonVariants({ size: "md" }), "w-fit rounded-full")}

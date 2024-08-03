@@ -2,10 +2,13 @@
 
 import Typography from "@/app/_components/ui/typography";
 import { UserAvatar } from "@/app/_components/ui/user-avatar";
-import { handleQuestionView } from "@/app/_lib/actions/questions.action";
+import { handleQuestionView } from "@/app/_lib/actions/question.action";
+import { ny } from "@/app/_lib/utils";
 import { Eye, MessageCircle } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Date from "../../component/date";
+import { buttonVariants } from "../../ui/button";
 
 type Props = {
   question: any;
@@ -28,6 +31,23 @@ const QuestionCard = ({ question }: Props) => {
       <Typography element="h5" as="h5" color="secondary">
         {question.title}
       </Typography>
+      <div className="flex items-center gap-2">
+        {question.tags?.length > 0 &&
+          question.tags.map((tag: any, index: number) => (
+            <Link
+              href={`/community/all-questions/${question.id}`}
+              key={index}
+              className={ny(
+                buttonVariants({
+                  variant: "tag",
+                  size: "xs",
+                })
+              )}
+            >
+              {tag.name}
+            </Link>
+          ))}
+      </div>
       <div className="flex items-center justify-between ">
         <div className="flex items-center gap-1">
           <UserAvatar
@@ -54,7 +74,7 @@ const QuestionCard = ({ question }: Props) => {
             className="font-normal p-0 m-0 h-fit flex items-center gap-1"
           >
             <Eye size={18} className="text-primary-foreground" />
-            {question?.views.length}
+            {question?.viewCount}
           </Typography>
           <Typography
             element="p"

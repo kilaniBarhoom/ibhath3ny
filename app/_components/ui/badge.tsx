@@ -12,14 +12,21 @@ const badgeVariants = cva(
           "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
         secondary:
           "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        smoked: "border-transparent bg-smoked text-smoked-foreground",
         destructive:
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
+        tag: "bg-primary/30 text-primary/90",
+      },
+      rounded: {
+        full: "rounded-full",
+        default: "rounded-md",
       },
     },
     defaultVariants: {
       variant: "default",
-    },
+      rounded: "default",
+    }
   }
 );
 

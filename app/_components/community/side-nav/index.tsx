@@ -23,35 +23,30 @@ type SidenavItem = {
 const sidenavItems1: SidenavItem[] = [
   {
     title: "جميع الأسئلة",
-    icon: <MessageCircleQuestion />,
+    icon: <MessageCircleQuestion size={18} />,
     href: "all-questions",
   },
   {
     title: "أسئلتي",
-    icon: <NotebookPen />,
+    icon: <NotebookPen size={18} />,
     href: "my-questions",
   },
   {
     title: "تاغات",
-    icon: <Tag />,
+    icon: <Tag size={18} />,
     href: "tags",
-  },
-  {
-    title: "مجتمعات",
-    icon: <Users />,
-    href: "communities",
   },
 ];
 
 export const sidenavItems2: SidenavItem[] = [
   {
     title: "إضافة سؤال",
-    icon: <Plus />,
+    icon: <Plus size={18} />,
     href: "ask",
   },
   {
     title: "الإعدادات",
-    icon: <Settings />,
+    icon: <Settings size={18} />,
     href: "settings",
   },
 ];
@@ -68,8 +63,8 @@ const SideNav = () => {
               buttonVariants({
                 variant: pathname.includes(item.href)
                   ? "default"
-                  : "ghostOnNav",
-                size: "md",
+                  : "ghost",
+                size: "sm",
               }),
               "w-full justify-start flex items-center gap-3"
             )}
@@ -89,8 +84,8 @@ const SideNav = () => {
               buttonVariants({
                 variant: pathname.includes(item.href)
                   ? "default"
-                  : "ghostOnNav",
-                size: "md",
+                  : "ghost",
+                size: "sm",
               }),
               "w-full justify-start flex items-center gap-3"
             )}

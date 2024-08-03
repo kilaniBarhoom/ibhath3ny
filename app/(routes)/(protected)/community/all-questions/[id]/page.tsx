@@ -1,11 +1,16 @@
-import PostAnswer from "@/app/_components/community/question/answer/post-answer";
+import AnswerComponent from "@/app/_components/community/questions/answer";
+import PostAnswer from "@/app/_components/community/questions/answer/post-answer";
 import Date from "@/app/_components/component/date";
+import { DeleteConfirmDialog } from "@/app/_components/community/questions/delete-confirm-dialog";
+import { Button, buttonVariants } from "@/app/_components/ui/button";
 import Typography from "@/app/_components/ui/typography";
 import { UserAvatar } from "@/app/_components/ui/user-avatar";
-import { getQuestionById } from "@/app/_lib/actions/questions.action";
+import { deleteQuestion, getQuestionById } from "@/app/_lib/actions/question.action";
+import { ny } from "@/app/_lib/utils";
+import { auth } from "@/auth";
 import { Clock, Eye, MessageCircle } from "lucide-react";
-import AnswerComponent from "../../../../../_components/community/question/answer";
-
+import Link from "next/link";
+import { toast } from "sonner";
 
 const QuestionViewPage = async ({
   params: { id },
@@ -14,14 +19,57 @@ const QuestionViewPage = async ({
 }) => {
   const { data: question } = await getQuestionById(id);
 
+
+  const session = await auth();
+  const user = session?.user;
+
+  const hasUserVoted = (answer: AnswerType) => {
+    return !!answer.upvotes.find((upvote) => upvote.userId === user?.id);
+  };
+
+ 
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-4">
-        <UserAvatar
-          name={question?.user.name!}
-          image={question?.user.image || ""}
-          avatarClassName="bg-smoked"
-        />
+        <div className="flex items-center gap-1">
+          <UserAvatar
+            name={question?.user.name!}
+            image={question?.user.image || ""}
+            avatarClassName="bg-smoked"
+          />
+          {question?.user.id === user?.id && (
+            <>
+              <span>・</span>
+              <Link
+                href={`/community/all-questions/edit/${id}`}
+                className={ny(
+                  buttonVariants({
+                    variant: "link",
+                    size: "sm",
+                  }),
+                  "px-0"
+                )}
+              >
+                تعديل
+              </Link>
+              <span>・</span>
+              <DeleteConfirmDialog
+                alertTitle="حذف السؤال"
+                alertDescription="هل انت متأكد انك تريد حذف السؤال ؟"
+                id={id}
+              >
+                <Button
+                  variant={"link"}
+                  size={"sm"}
+                  className="px-0 text-red-400 hover:text-red-500"
+                >
+                  حذف
+                </Button>
+              </DeleteConfirmDialog>
+            </>
+          )}
+        </div>
         <Typography element="h3" as="h3" color="secondary">
           {question?.title}
         </Typography>
@@ -33,7 +81,7 @@ const QuestionViewPage = async ({
             className="font-normal p-0 m-0 h-fit flex items-center gap-1"
           >
             <Eye size={18} className="text-primary-foreground" />
-            {question?.views.length}
+            {question?.viewCount}
             {/* <p>مشاهدة</p> */}
           </Typography>
           <Typography
@@ -57,24 +105,27 @@ const QuestionViewPage = async ({
           </Typography>
         </div>
       </div>
-      <Typography element="p" as="p" color="muted">
-        <div dangerouslySetInnerHTML={{ __html: question?.content ?? "" }} />
-      </Typography>
+      <div dangerouslySetInnerHTML={{ __html: question?.content ?? "" }} />
       <div id="answers" className="flex flex-col gap-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
-          <Typography element="p" as="p">
-            {question?.answers.length}
-          </Typography>
-            <p className="text-foreground">{question?.answers.length === 1 ? "إجابة" : "إجابات"}</p>
-
+            <Typography element="p" as="p">
+              {question?.answers.length}
+            </Typography>
+            <p className="text-foreground">
+              {question?.answers.length === 1 ? "إجابة" : "إجابات"}
+            </p>
           </div>
         </div>
         <PostAnswer questionId={id} />
         <ul className="list-none mr-5 divide-y space-y-5">
           {question?.answers.length ? (
             question?.answers.map((answer) => (
-              <AnswerComponent key={answer.id} answer={answer} />
+              <AnswerComponent
+                key={answer.id}
+                answer={answer}
+                hasUserVoted={hasUserVoted(answer)}
+              />
             ))
           ) : (
             <div className="min-h-20 flex items-center justify-center">

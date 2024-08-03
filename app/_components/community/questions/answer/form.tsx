@@ -15,7 +15,8 @@ import {
 } from "@/app/_components/ui/form";
 import { Input } from "@/app/_components/ui/input";
 import { EditorComponent } from "@/app/_components/editor";
-import { createAnswer } from "@/app/_lib/actions/answers.action";
+import { createAnswer } from "@/app/_lib/actions/answer.action";
+import { toast } from "sonner";
 
 const AnswerFormSchema = z.object({
   content: z.string().min(1, "عليك ادخال النص!"),
@@ -49,7 +50,10 @@ type AnswerFormSchemaType = z.infer<typeof AnswerFormSchema>;
           // TODO: update answer
         } else {
           const response = await createAnswer(data, questionId);
-          answerForm.reset();
+          if (response.success) {
+            toast("تمت الاضافة بنجاح")
+            answerForm.reset()
+          }
         }
       } catch (error: any) {
         console.log(error);

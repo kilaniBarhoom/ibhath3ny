@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 import * as React from "react";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap rounded-lg text-sm font-semibold transition-all ease-in-out duration-200 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 user-select-none",
+  "inline-flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap rounded-lg text-sm font-bold transition-all ease-in-out duration-200 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 user-select-none",
   {
     variants: {
       variant: {
@@ -21,7 +21,7 @@ const buttonVariants = cva(
           "hover:bg-muted text-muted-foreground hover:text-secondary-foreground",
         ghostOnNav:
           "hover:bg-background text-muted-foreground hover:text-secondary-foreground",
-        link: "text-secondary-foreground hover:underline hover:text-primary-foreground",
+        link: "text-muted-foreground hover:underline hover:text-secondary-foreground",
         hover: "text-muted-foreground hover:text-secondary-foreground",
         expandIcon:
           "group relative text-primary-foreground bg-primary hover:bg-primary/90",
@@ -31,14 +31,15 @@ const buttonVariants = cva(
           "bg-background text-secondary-foreground hover:bg-background/90",
         bgOutline:
           "border border-black/30 dark:border-white/30 text-secondary-foreground hover:bg-background hover:text-accent-foreground",
+        tag: "bg-primary/30 text-primary/90",
       },
       size: {
-        xs: "h-7 rounded-lg p-2",
+        xs: "h-7 rounded-lg p-2 font-normal text-xs",
         sm: "h-9 py-2 rounded-lg px-4",
         default: "h-10 px-4 py-2",
         md: "h-11 py-3 px-6 text-lg",
         lg: "h-11 text-lg rounded-lg py-4 px-8",
-        icon: "h-10 w-10 p-0",
+        icon: "h-fit w-fit p-0",
       },
     },
     defaultVariants: {

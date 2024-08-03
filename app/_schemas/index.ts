@@ -1,12 +1,13 @@
 import * as z from "zod";
 
-export const CreateQuestionSchema = z.object({
+export const MutateQuestionSchema = z.object({
   title: z.string().min(1, "العنوان لا يجب أن يكون فارغًا"),
   content: z.string().min(1, "السؤال لا يجب أن يكون فارغًا"),
+  tags: z.any(),
   anonymous: z.boolean().optional(),
 });
 
-export type CreateQuestionSchemaType = z.infer<typeof CreateQuestionSchema>;
+export type MutateQuestionSchemaType = z.infer<typeof MutateQuestionSchema>;
 
 
 export const createAnswerSchema = z.object({

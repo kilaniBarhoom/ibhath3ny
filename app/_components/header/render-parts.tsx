@@ -18,15 +18,30 @@ const RenderParts = ({ user }: Props) => {
   return (
     <>
       {pathname === "/search" ? (
-        <div className="flex items-center gap-1 p-1 px-2 bg-muted rounded-md">
-          <CircleDollarSign className="text-primary p-0 m-0 h-fit" size={20} />
-          <Typography
-            element="p"
-            as="lead"
-            className="text-secondary-foreground h-fit leading-none p-0 m-0 pt-1 w-fit md:leading-none tabular-nums font-normal"
+        <div className="flex items-center gap-4">
+         
+          <div className="flex items-center gap-1 p-1 px-2 bg-muted rounded-md">
+            <CircleDollarSign
+              className="text-primary p-0 m-0 h-fit"
+              size={20}
+            />
+            <Typography
+              element="p"
+              as="lead"
+              className="text-secondary-foreground h-fit leading-none p-0 m-0 pt-1 w-fit md:leading-none tabular-nums font-normal"
+            >
+              0
+            </Typography>
+          </div>
+          <Link
+            href={"/community/all-questions"}
+            className={ny(
+              buttonVariants({ variant: "link" }),
+              "p-0 font-normal"
+            )}
           >
-            0
-          </Typography>
+            مجتمعنا
+          </Link>
         </div>
       ) : (
         <div className="flex items-center gap-4">

@@ -38,3 +38,8 @@ declare type QuestionType = {
   createdAt: string;
   updatedAt: string;
 };
+
+
+declare type SearchParamsProps = {
+  searchParams: { [key: string]: string | undefined };
+}
