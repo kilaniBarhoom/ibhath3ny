@@ -12,9 +12,10 @@ import { buttonVariants } from "../../ui/button";
 
 type Props = {
   question: any;
+  user: any;
 };
 
-const QuestionCard = ({ question }: Props) => {
+const QuestionCard = ({ question, user }: Props) => {
   const router = useRouter();
   const handleViews = async (id: string) => {
     await handleQuestionView(id);
@@ -50,11 +51,20 @@ const QuestionCard = ({ question }: Props) => {
       </div>
       <div className="flex items-center justify-between ">
         <div className="flex items-center gap-1">
-          <UserAvatar
-            name={question.user.name!}
-            image={question.user.image || ""}
-            avatarClassName="bg-smoked"
-          />
+          {user.id === question?.user?.id ? (
+            <UserAvatar
+              name={"أنت"}
+              image={user.image || ""}
+              avatarClassName="bg-smoked"
+            />
+          ) : (
+            <UserAvatar
+              name={question.anonymous ? "مجهول" : question.user.name!}
+              image={question.anonymous ? "" : question.user.image || ""}
+              avatarClassName="bg-smoked"
+            />
+          )}
+
           <span>・</span>
           <Typography
             element="p"

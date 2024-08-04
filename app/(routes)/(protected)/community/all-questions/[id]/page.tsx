@@ -5,12 +5,11 @@ import { DeleteConfirmDialog } from "@/app/_components/community/questions/delet
 import { Button, buttonVariants } from "@/app/_components/ui/button";
 import Typography from "@/app/_components/ui/typography";
 import { UserAvatar } from "@/app/_components/ui/user-avatar";
-import { deleteQuestion, getQuestionById } from "@/app/_lib/actions/question.action";
+import {  getQuestionById } from "@/app/_lib/actions/question.action";
 import { ny } from "@/app/_lib/utils";
 import { auth } from "@/auth";
 import { Clock, Eye, MessageCircle } from "lucide-react";
 import Link from "next/link";
-import { toast } from "sonner";
 
 const QuestionViewPage = async ({
   params: { id },
@@ -33,11 +32,19 @@ const QuestionViewPage = async ({
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-1">
-          <UserAvatar
-            name={question?.user.name!}
-            image={question?.user.image || ""}
-            avatarClassName="bg-smoked"
-          />
+          {user?.id === question?.user?.id ? (
+            <UserAvatar
+              name={"أنت"}
+              image={user?.image || ""}
+              avatarClassName="bg-smoked"
+            />
+          ) : (
+            <UserAvatar
+              name={question?.anonymous ? "مجهول" : question?.user.name!}
+              image={question?.anonymous ? "" : question?.user.image || ""}
+              avatarClassName="bg-smoked"
+            />
+          )}
           {question?.user.id === user?.id && (
             <>
               <span>・</span>
