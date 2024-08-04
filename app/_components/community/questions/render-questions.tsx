@@ -7,13 +7,16 @@ import QuestionCard from './question-card';
 import LocalSearchBar from './search/local-search';
 import Image from 'next/image';
 import NoQuestions from '@/public/images/no_questions.svg';
+import { auth } from '@/auth';
 
 type Props = {
     title: string;
   questions: any;
   children?: React.ReactNode;
 }
-const RenderQuestions = ({title, questions, children}: Props) => {
+const RenderQuestions = async ({ title, questions, children }: Props) => {
+  const session = await auth();
+  const user = session?.user;
   return (
     <div className="grid gap-5 w-full">
       <div className="flex sm:flex-row flex-col items-center justify-between w-full gap-4">
@@ -32,7 +35,7 @@ const RenderQuestions = ({title, questions, children}: Props) => {
       <div className="flex flex-col gap-4">
         {questions?.length > 0 ? (
           questions.map((question: any) => (
-            <QuestionCard key={question.id} question={question} />
+            <QuestionCard key={question.id} question={question} user={user} />
           ))
         ) : (
           <div className="flex flex-col gap-4 items-center justify-center min-h-60 w-full text-center">

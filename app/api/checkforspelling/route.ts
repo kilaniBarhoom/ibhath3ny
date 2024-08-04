@@ -11,12 +11,13 @@ export const POST = async (request: Request) => {
 
     const result = await model.generateContent([prompt]);
     const inputString = result.response.text();
-    const cleanedString = inputString
-      .replace(/^\s*```json\s*/, "")
-      .replace(/\s*```\s*$/, "");
+    
+    console.log(inputString);
+    // replace /n with empty string then trim the string
+    const outputString = inputString.replace(/\n/g, "").trim();
     
     return NextResponse.json({
-      cleanedString,
+      outputString,
     });
   } catch (error: any) {
     return NextResponse.json({
