@@ -12,7 +12,7 @@ const OtherNav = async () => {
     const {data: questions} = await getTopQuestions()
     const {data: tags} = await getTopTags()
   return (
-    <nav className="flex flex-col gap-5 py-4 w-full h-full">
+    <nav className="flex flex-col gap-5 py-4 w-full h-full overflow-y-auto">
       <div className="px-4 flex flex-col gap-5">
         <Typography element="p" as="largeText">
           الأسئلة المشهورة
@@ -21,7 +21,7 @@ const OtherNav = async () => {
           {questions.map((question) => (
             <li key={question?.title}>
               <Link
-                href={`/community/all-question/${question.id}`}
+                href={`/community/all-questions/${question.id}`}
                 className={ny(
                   buttonVariants({ variant: "link" }),
                   "flex justify-between items-center truncate antialiased"
