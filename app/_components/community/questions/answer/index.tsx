@@ -6,14 +6,20 @@ import Typography from "@/app/_components/ui/typography";
 import { UserAvatar } from "@/app/_components/ui/user-avatar";
 import { upvoteAnswer } from "@/app/_lib/actions/answer.action";
 import { ArrowBigUp } from "lucide-react";
+import {useState} from 'react';
 import { toast } from "sonner";
 
 const AnswerComponent = ({ answer, hasUserVoted }: {
   answer: AnswerType;
   hasUserVoted: boolean;
 }) => {
+
+  const [loadingToVote, setLoadingToVote] = useState(false);
+
+
   const handleUpvoteAnswer = async () => {
     try {
+      setLoadingToVote(true);
      const response = await upvoteAnswer(answer.id);
       if (response.success) {
         if (response.type === "upVoted") {
@@ -27,6 +33,8 @@ const AnswerComponent = ({ answer, hasUserVoted }: {
         
     } catch (error) {
       toast("حدث خطأ أثناء التصويت");
+    } finally {
+      setLoadingToVote(false);
     }
   }
   return (
@@ -40,7 +48,7 @@ const AnswerComponent = ({ answer, hasUserVoted }: {
         <Typography element="p" as="p" color="secondary" className="">
           {answer.upvotes.length}
         </Typography>
-        <Button type="submit" variant={"ghost"} size={"icon"}>
+        <Button type="submit" variant={"ghost"} size={"icon"} disabled={loadingToVote}>
         <ArrowBigUp
           size={30}
           strokeWidth={1}
