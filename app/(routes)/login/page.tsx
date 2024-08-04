@@ -3,6 +3,7 @@ import { buttonVariants } from "@/app/_components/ui/button";
 import Typography from "@/app/_components/ui/typography";
 import { ny } from "@/app/_lib/utils";
 import Link from "next/link";
+import { Suspense } from 'react'
 
 const LoginPage = () => {
   return (
@@ -12,7 +13,9 @@ const LoginPage = () => {
           تسجيل الدخول
         </Typography>
         <div className="flex flex-col gap-4">
+          <Suspense>
           <SocialsLogin />
+          </Suspense>
           <Typography
             element="p"
             as="mutedText"
