@@ -31,7 +31,7 @@ const MutateQuestionForm = ({
   question?: any;
 }) => {
   const [isSubmittingAI, setIsSubmittingAI] = useState(false);
-  const public_url = "http://localhost:3000/api";
+  const public_url = "https://ibhath3ny.vercel.app/api";
 
   const groupTags =
     question?.tags?.length > 0 && question.tags.map((tag: any) => tag.name);
