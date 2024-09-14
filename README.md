@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# ibhath3ny
 
-First, run the development server:
+![App Screenshot](https://i.ibb.co/4ZHy2dQ/image.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## This is a Next js project for learning purposes!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The main idea of this app is to figure out using machine learning what tv program is the user thinking about using a description of it...
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The future AI model will be developed to be run on a large data set that contains more than 26,000 tv programs,
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+**Client (Front End):** 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+bun
+React,
+NextJs, 
+TailwindCSS,
+React Hook Form,
+Zod,
+Nyxb UI,
+framer motion,
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Server (Back End):** 
 
-## Deploy on Vercel
+Bun,
+Prisma orm,
+Auth js (google oauth),
+neon (serverless postgres database),
+zod,
+BcryptJS,
+JsonWebToken,
+sessions
+## Environment Variables
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To run this project, you will need to add the following environment variables to your .env file
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### // TODO
+
+## Installation
+
+#### // TODO
+## Deployment
+
+Deployed using vercel
